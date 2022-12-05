@@ -7,6 +7,7 @@ import { MenuItemButton } from "./menu-item-button";
 import { MenuItemLink } from "./menu-item-link";
 import { Button } from "@features/ui";
 import { breakpoint, color, space, zIndex } from "@styles/theme";
+import { rootCertificates } from "tls";
 
 const menuItems = [
   { text: "Projects", iconSrc: "/icons/projects.svg", href: Routes.projects },
@@ -145,7 +146,8 @@ const LinkList = styled(List)`
 `;
 
 const CollapseMenuItem = styled(MenuItemButton)`
-  display: none;
+  transform: ${(props) =>
+    props.isCollapsed ? "rotate(180deg)" : "rotate(0deg)"};
 
   @media (min-width: ${breakpoint("desktop")}) {
     display: flex;
